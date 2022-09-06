@@ -1,0 +1,86 @@
+<section id="login" class="login">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">
+            <h3>Register</h3>
+          </div>
+          <div class="card-body">
+            <div
+              class="alert alert-danger"
+              *ngIf="registerForm.errors && registerForm.errors['mismatch']"
+            >
+              password & password konfirmasi tidak sama
+            </div>
+            <div
+              class="alert alert-danger"
+              *ngIf="
+                registerForm.errors && registerForm.errors['registrationFailed']
+              "
+            >
+              Registration failed
+            </div>
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                  formControlName="email"
+                />
+                <label for="floatingInput">Email address</label>
+                <app-validation-message
+                  [control]="registerForm.get(registerField.EMAIL)"
+                  [field]="registerField.EMAIL"
+                ></app-validation-message>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="floatingPassword"
+                  placeholder="Password"
+                  formControlName="password"
+                />
+                <label for="floatingPassword">Password</label>
+                <app-validation-message
+                  [control]="registerForm.get(registerField.PASSWORD)"
+                  [field]="registerField.PASSWORD"
+                ></app-validation-message>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="floatingPassword"
+                  placeholder="Password"
+                  formControlName="passwordConfirmation"
+                />
+                <label for="floatingPassword">Confirm Password</label>
+                <app-validation-message
+                  [control]="
+                    registerForm.get(registerField.PASSWORD_CONFIRMATION)
+                  "
+                  [field]="'password confirmation'"
+                ></app-validation-message>
+              </div>
+              <div class="d-grid gap-2 btn-login">
+                <button class="btn btn-outline-primary" type="submit">
+                  REGISTER
+                </button>
+                <div class="btn-login-footer">
+                  <p>
+                    Already have an account?
+                    <a routerLink="/auth/login">Login</a>
+                  </p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

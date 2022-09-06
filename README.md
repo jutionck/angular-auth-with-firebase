@@ -1,27 +1,48 @@
-# AngularAuthWithFirebase
+## Angular Auth With Firebase
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.0.
+### Setup Account
 
-## Development server
+1. Login to firebase console https://console.firebase.google.com
+2. Click New Project `e.g`: `angular-auth`
+3. Enable Recomandation
+4. Finish.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Setup Authentication
 
-## Code scaffolding
+1. Click build menu on sidebar and choose Authentication
+2. Click Sign-in Method and choose Email/Password
+3. Enabled.
+4. Finish
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Setup API Keys
 
-## Build
+1. Navigate to project overview
+2. Click add Firebase to your web app
+3. Save your firebaseConfig and put on yout env angular
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Setup Angular
 
-## Running unit tests
+1. Open your angular project
+2. Add dependency `ng add @angular/fire` or `npm i firebase @angular/fire`
+3. Register module in `app.module`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```ts
+// Firebase
+import { AngularFireModule } from "@angular/fire/compat";
+import { environment } from "../environments/environment";
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
