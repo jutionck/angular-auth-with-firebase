@@ -51,7 +51,6 @@ export class LoginComponent implements OnInit {
 
     try {
       let result = await this.authService.signIn(email, password);
-      console.log(result);
       this.router.navigateByUrl('/home');
     } catch (e) {
       this.loginForm.setErrors({ loginFailed: true });
