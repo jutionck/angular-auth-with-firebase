@@ -4,7 +4,15 @@
 
 export const environment = {
   production: false,
-  
+  firebaseConfig: {
+    apiKey: "AIzaSyBdi8d8xYyEzOV-ScnuxdnEQzi2dFuub0I",
+    authDomain: "angular-auth-2549e.firebaseapp.com",
+    projectId: "angular-auth-2549e",
+    storageBucket: "angular-auth-2549e.appspot.com",
+    messagingSenderId: "413556084858",
+    appId: "1:413556084858:web:1c348f3fbff646dc0babc3",
+    measurementId: "G-Y11KSYKRF2"
+  }
 };
 
 /*

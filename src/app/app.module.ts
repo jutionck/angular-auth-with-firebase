@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from '../environments/environment';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HomeModule,
     ReactiveFormsModule,
     HttpClientModule,
     AngularFireAuthModule,

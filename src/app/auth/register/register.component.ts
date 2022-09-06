@@ -52,6 +52,9 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.authService.userData) {
+      this.router.navigateByUrl('/home');
+    }
     this.buildForm();
   }
 
