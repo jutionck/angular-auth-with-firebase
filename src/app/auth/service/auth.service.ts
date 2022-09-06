@@ -10,4 +10,8 @@ export class AuthService {
   signUp(email: string, password: string) {
     return this.auth.createUserWithEmailAndPassword(email, password);
   }
+
+  signIn(email: string, password: string) {
+    return this.auth.signInWithEmailAndPassword(email, password);
+  }
 }

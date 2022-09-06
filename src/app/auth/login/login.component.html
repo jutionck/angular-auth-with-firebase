@@ -7,15 +7,20 @@
             <h3>Login</h3>
           </div>
           <div class="card-body">
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
               <div class="form-floating mb-3">
                 <input
                   type="email"
                   class="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  formControlName="email"
                 />
                 <label for="floatingInput">Email address</label>
+                <app-validation-message
+                  [control]="loginForm.get(loginField.EMAIL)"
+                  [field]="loginField.EMAIL"
+                ></app-validation-message>
               </div>
               <div class="form-floating">
                 <input
@@ -23,11 +28,16 @@
                   class="form-control"
                   id="floatingPassword"
                   placeholder="Password"
+                  formControlName="password"
                 />
                 <label for="floatingPassword">Password</label>
+                <app-validation-message
+                  [control]="loginForm.get(loginField.PASSWORD)"
+                  [field]="loginField.PASSWORD"
+                ></app-validation-message>
               </div>
               <div class="d-grid gap-2 btn-login">
-                <button class="btn btn-outline-primary" type="button">
+                <button class="btn btn-outline-primary" type="submit">
                   LOGIN
                 </button>
                 <div class="btn-login-footer">
